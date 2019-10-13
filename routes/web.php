@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FoodController@index');
+
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('buy/{food}', 'OrderController@buy')->name('buy')->middleware('auth');
+Route::get('order/{order}', 'OrderController@show')->name('order')->middleware('auth');
+Route::get('admin', 'OrderController@index')->name('admin')->middleware('auth');
+
+
