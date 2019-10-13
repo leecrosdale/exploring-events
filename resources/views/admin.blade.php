@@ -31,9 +31,16 @@
                                 <td>{{ $order->food->name }}</td>
                                 <td>{{ $order->status }}</td>
                                 <td>
-                                    <select>
+                                    <form method="post" action="{{ route('update', $order) }}">
+                                        {{ csrf_field() }}
+                                    <select name="status">
+                                        <option>Accepted</option>
+                                        <option>Cooking</option>
                                         <option>Out for delivery</option>
+                                        <option>Delivered</option>
                                     </select>
+                                        <button type="submit">Update</button>
+                                    </form>
                                 </td>
                             </tr>
 

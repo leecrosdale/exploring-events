@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('buy/{food}', 'OrderController@buy')->name('buy')->middleware('auth');
 Route::get('order/{order}', 'OrderController@show')->name('order')->middleware('auth');
+Route::post('order/{order}', 'OrderController@update')->name('update')->middleware('auth');
 Route::get('admin', 'OrderController@index')->name('admin')->middleware('auth');
 
 
